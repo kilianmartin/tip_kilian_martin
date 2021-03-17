@@ -1,0 +1,32 @@
+{% extends "bootstrap/base.html" %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} iBoard - Register {% endblock %}
+
+{% block content %}
+<h1>iBoard by <i>Iberia</i> - Register</h1>
+
+
+<div class="form">
+<form action="{{ url_for('register') }}" method="POST">
+
+{{ form.hidden_tag() }}
+
+{{ wtf.form_field(form.email) }}
+{{ wtf.form_field(form.password) }}
+{{ wtf.form_field(form.repeat_password) }}
+<input type="submit" value="register">
+
+</form>
+
+
+<div class="form_hint">
+
+
+    <a href="{{ url_for('login') }}">Already registered?</a>
+    
+</div>
+</div>
+
+{% endblock %}
