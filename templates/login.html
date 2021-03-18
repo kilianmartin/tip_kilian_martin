@@ -1,13 +1,12 @@
-{% extends "bootstrap/base.html" %}
+{% extends "base.html" %}
 
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %} iBoard - Login {% endblock %}
 
 {% block content %}
+<div class="container theme-showcase" role="main" style="margin-top: 75px;">
 <h1>iBoard by <i>Iberia</i> - Login</h1>
-
-<div class="form">
 
 <form action="{{ url_for('login') }}" method="POST">
 

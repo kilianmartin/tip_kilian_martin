@@ -1,0 +1,51 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}iBoard{% endblock %}
+
+{% block navbar %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('index') }}" style="color: #A8151C; font-weight: bold;">iBoard</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+
+
+                
+                {% if current_user.is_authenticated %}
+                
+                <li><a href="/dashboards/kpi1">KPI1</a></li>
+                <li><a href="/dashboards/kpi2">KPI2</a></li>
+                <li><a href="/dashboards/kpi3">KPI3</a></li>
+                <li><a href="/dashboards/kpi4">KPI4</a></li>
+                <li><a href="/dashboards/kpi5">KPI5</a></li>
+                <li><a href="/dashboards/kpi6">KPI6</a></li>
+
+                
+                
+                
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+
+
+                
+                {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+{% endblock %}
