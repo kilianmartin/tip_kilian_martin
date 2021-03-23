@@ -3,16 +3,204 @@
 {% block title %} iBoard {% endblock %}
 
 {% block content %}
-<div class="container theme-showcase" role="main" style="margin-top: 75px;">
 
-    <h1>iBoard by <i>Iberia</i></h1>
+<Script language="JavaScript">
+    <!-- Script courtesy of http://www.web-source.net - Your Guide to Professional Web Site Design and Development
+    function goto(form) { var index=form.select.selectedIndex
+    if (form.select.options[index].value != "0") {
+    location=form.select.options[index].value;}}
+    -->
+    </SCRIPT>
+
+
+
+
+
+<style>
+
+    .discalimer {color: rgb(0, 0, 0)}
+    .card {
+            padding: 1rem;
+            }
+    .cards {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-gap: 1rem;
+        }  
+
+    @media (min-width: 600px) {
+        .cards { grid-template-columns: repeat(2, 1fr); }
+        } 
+
+    @media (min-width: 900px) {
+        .cards { grid-template-columns: repeat(3, 1fr); }
+        }
+
+
+
+        .card-success, .card-warning, .card-danger {
+            display: none;
+        }
+
+
+        {% if item_type == "All" %}
+        
+        .card-success, .card-warning, .card-danger {
+            display: unset;
+        }
+
+        {% elif item_type == "insights" %}
+
+        .card-success {
+            display: unset;
+        }
+        
+        {% elif item_type == "review" %}
+
+        .card-warning {
+            display: unset;
+        }
+        
+        {% elif item_type == "danger" %}
+
+        .card-danger {
+            display: unset;
+        }
+        {% endif %}
+
+
+</style>
+
+<div class="container theme-showcase test" role="main" style="margin: 75px;">
+
     
-    {% if current_user.is_authenticated %}
-    <h1>Hello {{current_user.email}}</h1>
-    <a href="{{ url_for('logout') }}">Logout</a>
+    
 </div>
-    
+
+{% if current_user.is_authenticated %}
+
+<div class="container" style="width: 66vw; justify-content: center;">
+    <h1>Welcome to iBoard, {{current_user.email}}</h1>
+    <br>
+    <br>
+
+    <div class="container" style="background-color: rgb(231, 231, 231); width: 66vw; justify-content: center;">
+        <p>Disclaimer: Dummy data here</p>
+        <h1 class="discalimer">What requires your attention:</h1>
+        
+        <FORM NAME="form1">
+            <SELECT NAME="select" ONCHANGE="goto(this.form)" SIZE="1">
+            <OPTION VALUE="">--Which items do you want to see?-- 
+            <OPTION VALUE="/">All items
+            <OPTION VALUE="/index/insights">Insight items
+            <OPTION VALUE="/index/review">Review items
+            <OPTION VALUE="/index/danger">Danger items</SELECT>
+        </FORM>
+
+        <br>
+
+        <div class="cards">
+            
+            <div class="card card-success">        
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Insight: Backlog</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Backlog <b>-10%</b> this month - good progress!</p>
+                        <a href="/dashboards/kpi4">Investigate</a>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="card card-warning">        
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Review: Incidents</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Severity 1 incidents up <b>20%</b> this month.</p>
+                        <a href="/dashboards/kpi1">Investigate</a>
+                    </div>
+                </div>   
+            </div>
+
+            <div class="card card-danger">        
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Danger: Critical services</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p><b>3</b> critical services currently down.</p>
+                        <a href="/dashboards/kpi5">Investigate</a>
+                    </div>
+                </div>   
+            </div>
+
+
+
+            <div class="card card-success">        
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Insight: Critical ervices</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p><b>+5%</b> availability of crit. services!</p>
+                        <a href="/dashboards/kpi4">Investigate</a>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="card card-warning">        
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Review: Backlog</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Backlog up <b>10%</b> year over year.</p>
+                        <a href="/dashboards/kpi1">Investigate</a>
+                    </div>
+                </div>   
+            </div>
+
+            <div class="card card-danger">        
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Danger: Critical services</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p><b>1</b> service down critical for Easter travel.</p>
+                        <a href="/dashboards/kpi5">Investigate</a>
+                    </div>
+                </div>   
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
     {% else %}
+
+    <div class="container" style="width: 66vw; justify-content: center;">
+        <h1>Welcome to iBoard</h1>
+        <br>
+        <p>Please login or register to our platform, and you will have access soon.</p>
+
+        <div>
+            <a class="btn btn-danger" style="background-color: #DA162A; border-color: #DA162A;" href="{{ url_for('login') }}">Login</a>
+            <a class="btn btn-danger" style="background-color: #DA162A; border-color: #DA162A;" href="{{ url_for('register') }}">Register</a>
+        </div>
+
+
+
+
+    </div>
+
     {% endif %}
     
     {% endblock %}

@@ -5,8 +5,8 @@
 {% block title %} iBoard - Login {% endblock %}
 
 {% block content %}
-<div class="container theme-showcase" role="main" style="margin-top: 75px;">
-<h1>iBoard by <i>Iberia</i> - Login</h1>
+<div class="container theme-showcase" role="main" style="margin-top: 100px; background-color: #eae8e8; width: 400px; padding: 30px;">
+<h1>Login</h1>
 
 <form action="{{ url_for('login') }}" method="POST">
 
@@ -15,16 +15,24 @@
 {{ wtf.form_field(form.email) }}
 {{ wtf.form_field(form.password) }}
 
-<input type="submit" value="login">
+<input type="submit" value="Login" class="btn btn-danger" style="background-color: #DA162A; border-color: #DA162A;">
 
 </form>
 
 <div class="form_hint">
 
+<br>
 
-<a href="{{ url_for('register') }}">Not registered yet?</a>
+<a href="{{ url_for('register') }}">Not registered yet? Register & get approved!</a>
+
+
+
+
 
 </div>
 </div>
+
+
+
 
 {% endblock %}

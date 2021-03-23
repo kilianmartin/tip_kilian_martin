@@ -5,8 +5,8 @@
 {% block title %} iBoard - register {% endblock %}
 
 {% block content %}
-<div class="container theme-showcase form" role="main" style="margin-top: 75px">
-<h1>iBoard by <i>Iberia</i> - register</h1>
+<div class="container theme-showcase" role="main" style="margin-top: 100px; background-color: #eae8e8; width: 400px; padding: 30px;">
+<h1>Register</h1>
 
 
 <form action="{{ url_for('register') }}" method="POST">
@@ -17,7 +17,7 @@
 {{ wtf.form_field(form.password) }}
 {{ wtf.form_field(form.repeat_password) }}
 
-<input type="submit" value="register">
+<input type="submit" value="Register" class="btn btn-danger" style="background-color: #DA162A; border-color: #DA162A;"">
 
 </form>
 
@@ -27,6 +27,10 @@
 <a href="{{ url_for('login') }}">Already registered?</a>
 
 </div>
+</div>
+
+
+
 </div>
 
 {% endblock %}
