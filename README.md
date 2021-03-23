@@ -1,3 +1,10 @@
+Deployed at:
+https://tip-kilian-martin.ew.r.appspot.com/
+
+Slides at:
+https://tip-kilian-martin.ew.r.appspot.com/slides
+
+
 Better viewd in "raw" mode:
 
 .____________                       .___                                    
@@ -15,8 +22,4 @@ Better viewd in "raw" mode:
                                                                                                                                   
                                                                                                                                   
 
-Deployed at:
-https://tip-kilian-martin.ew.r.appspot.com/
 
-Slides at:
-https://tip-kilian-martin.ew.r.appspot.com/slides
